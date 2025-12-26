@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/fastr",
+            "destination": "https://fastr-ivory.vercel.app"
+        },
+        {
+            "source": "/fastr/:match*",
+            "destination": "https://fastr-ivory.vercel.app/:match*"
+        }
+    ]
+}
