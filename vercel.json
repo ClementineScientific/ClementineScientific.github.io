@@ -7,6 +7,14 @@
         {
             "source": "/fastr/:match*",
             "destination": "https://fastr-ivory.vercel.app/:match*"
+        },
+        {
+            "source": "/paradefood",
+            "destination": "https://parade-food.vercel.app/paradefood"
+        },
+        {
+            "source": "/paradefood/:match*",
+            "destination": "https://parade-food.vercel.app/paradefood/:match*"
         }
     ]
 }
