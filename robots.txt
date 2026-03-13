@@ -1,0 +1,10 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://clementinescientific.com/sitemap.xml
+Sitemap: https://clementinescientific.com/FASTr/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
