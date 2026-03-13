@@ -4,7 +4,7 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://clementinescientific.com/sitemap.xml
-Sitemap: https://clementinescientific.com/FASTr/sitemap.xml
+Sitemap: https://clementinescientific.com/fastr/sitemap.xml
 
 # Crawl delay (optional, in seconds)
 Crawl-delay: 1
