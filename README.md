@@ -87,7 +87,7 @@ The `/floraf` page posts to serverless functions in `api/`:
 
 | Function | Purpose |
 | --- | --- |
-| `api/license.js` | Issues a one-per-email 7-day trial key; starts Stripe Checkout for paid tiers |
+| `api/license.js` | Issues a one-per-email 14-day trial key; starts Stripe Checkout for paid tiers |
 | `api/stripe-webhook.js` | Marks paid requests and emails you an approval link |
 | `api/approve.js` | Confirmation page; POST issues the full license and emails it |
 | `api/subscribe.js` / `api/unsubscribe.js` | Mailing list |
@@ -104,7 +104,7 @@ Setup:
    | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` | |
    | `STRIPE_PRICE_ACADEMIC`, `STRIPE_PRICE_COMMERCIAL` | Stripe price IDs |
    | `APPROVAL_SECRET` | Long random string used to sign approval links |
-   | `LICENSE_GENERATOR_URL`, `LICENSE_GENERATOR_TOKEN` | See contract in `api/_lib/generator.js` |
+   | `LICENSE_GENERATOR_URL`, `LICENSE_GENERATOR_TOKEN` | See contract in `api/_lib/generator.js`. `LICENSE_GENERATOR_TOKEN` must be identical to the value set on the `floraf-license-generator` project |
    | `EMAIL_API_KEY`, `EMAIL_FROM` | Resend |
    | `ADMIN_EMAIL` | Receives approval requests |
    | `SITE_URL` | Optional, defaults to `https://clementinescientific.com` |

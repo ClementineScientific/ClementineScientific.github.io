@@ -45,9 +45,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe service cards and tech cards
+// Observe service cards, tech cards, and FLORAF page cards
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.service-card, .tech-card');
+    const cards = document.querySelectorAll('.service-card, .tech-card, .pricing-card, .chart-card');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -57,16 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Basic analytics event tracking (if you add GA4 or similar)
+// Basic analytics event tracking via GA4
 function trackEvent(eventName, eventData = {}) {
-    // Placeholder for analytics tracking
-    // If using Google Analytics 4:
-    // gtag('event', eventName, eventData);
-    
-    // If using Plausible:
-    // plausible(eventName, { props: eventData });
-    
-    console.log('Event tracked:', eventName, eventData);
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, eventData);
+    }
 }
 
 // Track navigation clicks
@@ -90,11 +85,46 @@ document.querySelectorAll('a[target="_blank"]').forEach(link => {
 });
 
 // Track form interactions
-const formInputs = document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
+const formInputs = document.querySelectorAll('.subscribe-form input');
 formInputs.forEach(input => {
     input.addEventListener('focus', () => {
         trackEvent('form_field_focus', {
             field_name: input.name
         });
     }, { once: true }); // Only track first focus per field
+});
+
+// Newsletter signup forms
+document.querySelectorAll('.subscribe-form').forEach(subscribeForm => {
+    const status = subscribeForm.querySelector('.form-status');
+    const button = subscribeForm.querySelector('button[type="submit"]');
+
+    subscribeForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.className = 'form-status';
+        status.textContent = '';
+        button.disabled = true;
+
+        try {
+            const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: subscribeForm.elements.email.value,
+                    website: subscribeForm.elements.website.value,
+                    source: subscribeForm.dataset.source || 'unknown'
+                })
+            });
+            if (!res.ok) throw new Error('subscribe_failed');
+            subscribeForm.reset();
+            status.classList.add('is-success');
+            status.textContent = 'Thanks! You are on the list.';
+            trackEvent('newsletter_signup', { source: subscribeForm.dataset.source });
+        } catch (err) {
+            status.classList.add('is-error');
+            status.textContent = 'Something went wrong. Please try again or email rafael@clementinescientific.com.';
+        } finally {
+            button.disabled = false;
+        }
+    });
 });

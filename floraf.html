@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FLORAF is FLORIS on GPUs with automatic differentiation. Run large wind farm AEP studies faster and optimize layouts and yaw with gradients. Start a free 14-day trial.">
+    <meta name="keywords" content="FLORAF, FLORIS GPU, differentiable FLORIS, wind farm AEP, wind farm layout optimization, wake steering optimization, wind farm automatic differentiation, GPU wind farm model">
+    <title>FLORAF | FLORIS on GPUs with Gradients</title>
+    <link rel="canonical" href="https://clementinescientific.com/floraf">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY0GCZ6SR5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MY0GCZ6SR5');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">Clementine Scientific</a>
+                <div class="nav-links">
+                    <a href="#benchmarks">Speed</a>
+                    <a href="#optimization">Optimization</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#license" class="nav-cta">Get a license</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero floraf-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">FLORIS on GPUs with gradients</h1>
+                <p class="hero-subtitle">FLORAF is the FLORIS wake models and API with support for NVIDIA and Apple GPUs and automatic differentiation. This unlocks running large wind farm studies and gradient-based layout and yaw optimization in a fraction of the time.</p>
+                <div class="hero-cta">
+                    <a href="#license" class="btn btn-primary" data-cta="start_trial">Start free trial</a>
+                    <a href="#pricing" class="btn btn-secondary" data-cta="compare_plans">Compare plans</a>
+                </div>
+                <!-- PLACEHOLDER stat values: replace with measured benchmark results -->
+                <div class="stat-tiles">
+                    <div class="stat-tile">
+                        <span class="stat-value">100×</span>
+                        <span class="stat-label">faster AEP on large farms</span>
+                    </div>
+                    <div class="stat-tile">
+                        <span class="stat-value">GPU</span>
+                        <span class="stat-label">NVIDIA (CUDA), Apple (Metal, MPS)</span>
+                    </div>
+                    <div class="stat-tile">
+                        <span class="stat-value">AD</span>
+                        <span class="stat-label">Automatic differentiation with PyTorch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmarks -->
+    <section id="benchmarks" class="floraf-section">
+        <div class="container">
+            <h2 class="section-title">The bigger the farm, the bigger the gap</h2>
+            <p class="section-subtitle">FLORIS runtime grows quickly with turbine count. FLORAF keeps large problems interactive.</p>
+            <div class="chart-card wide">
+                <h3>Runtime vs. number of turbines</h3>
+                <div class="chart-legend">
+                    <span><span class="legend-swatch legend-floris"></span>FLORIS (CPU)</span>
+                    <span><span class="legend-swatch legend-floraf"></span>FLORAF (GPU)</span>
+                </div>
+                <div class="chart" id="runtime-chart" role="img" aria-label="Line chart on log axes showing FLORIS runtime growing much faster than FLORAF runtime as turbine count increases."></div>
+                <p class="chart-caption">Illustrative data. Lower is better. Both axes are logarithmic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimization -->
+    <section id="optimization" class="floraf-section alt">
+        <div class="container">
+            <h2 class="section-title">Optimize with gradients, not guesswork</h2>
+            <p class="section-subtitle">Automatic differentiation gives exact gradients in one pass, so optimizers reach good layouts and yaw strategies sooner.</p>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Layout optimization</h3>
+                    <div class="chart-legend">
+                        <span><span class="legend-swatch legend-floris"></span>FLORIS (finite differences)</span>
+                        <span><span class="legend-swatch legend-floraf"></span>FLORAF (gradients)</span>
+                    </div>
+                    <div class="chart" id="layout-chart" role="img" aria-label="Line chart showing FLORAF reaching an AEP gain much sooner than FLORIS during layout optimization."></div>
+                    <p class="chart-caption">Illustrative data. AEP gain over the initial layout vs. wall-clock time.</p>
+                </div>
+                <div class="chart-card">
+                    <h3>Yaw optimization</h3>
+                    <div class="chart-legend">
+                        <span><span class="legend-swatch legend-floris"></span>FLORIS (finite differences)</span>
+                        <span><span class="legend-swatch legend-floraf"></span>FLORAF (gradients)</span>
+                    </div>
+                    <div class="chart" id="yaw-chart" role="img" aria-label="Line chart showing FLORAF reaching an AEP gain much sooner than FLORIS during yaw optimization."></div>
+                    <p class="chart-caption">Illustrative data. AEP gain from wake steering vs. wall-clock time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section id="compare" class="floraf-section">
+        <div class="container">
+            <h2 class="section-title">FLORAF vs. FLORIS</h2>
+            <p class="section-subtitle">Same wake modeling you trust, built for scale.</p>
+            <div class="compare-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Capability</th>
+                            <th scope="col">FLORIS</th>
+                            <th scope="col" class="col-floraf">FLORAF</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Compute</th>
+                            <td>CPU</td>
+                            <td class="col-floraf">NVIDIA and Apple GPUs</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gradients</th>
+                            <td>Finite differences</td>
+                            <td class="col-floraf">Automatic differentiation</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Layout and yaw optimization</th>
+                            <td>Gradient-free or finite-difference</td>
+                            <td class="col-floraf">Gradient-based</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Large farms and many wind conditions</th>
+                            <td>Runtime grows quickly</td>
+                            <td class="col-floraf">Scales on the GPU</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Workflow</th>
+                            <td>Python API</td>
+                            <td class="col-floraf">Familiar FLORIS-style Python API</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Availability</th>
+                            <td>Open source</td>
+                            <td class="col-floraf">Licensed, with a free trial</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="floraf-section alt">
+        <div class="container">
+            <h2 class="section-title">Plans</h2>
+            <p class="section-subtitle">Start with a free trial. Upgrade when you're ready.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free trial</h3>
+                    <div class="price">$0 <small>/ 14 days</small></div>
+                    <ul>
+                        <li>14 days of access</li>
+                        <li>Limited features</li>
+                        <li>Key delivered instantly</li>
+                        <li>One trial per email address</li>
+                    </ul>
+                    <a href="#license" class="btn btn-secondary" data-tier="trial">Start free trial</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Academic</h3>
+                    <div class="price">$150 <small>/ month</small></div>
+                    <ul>
+                        <li>Limited features</li>
+                        <li>For university and research use</li>
+                        <li>Trial key issued instantly</li>
+                        <li>Full license issued after approval</li>
+                    </ul>
+                    <a href="#license" class="btn btn-secondary" data-tier="academic">Choose Academic</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Commercial</h3>
+                    <div class="price">$500 <small>/ month</small></div>
+                    <ul>
+                        <li>Full feature set</li>
+                        <li>For commercial use</li>
+                        <li>Trial key issued instantly</li>
+                        <li>Full license issued after approval</li>
+                    </ul>
+                    <a href="#license" class="btn btn-primary" data-tier="commercial">Choose Commercial</a>
+                </div>
+            </div>
+            <p class="pricing-note">Academic and Commercial plans are paid at checkout and reviewed before the full license is issued. Your trial key works in the meantime.</p>
+        </div>
+    </section>
+
+    <!-- License request -->
+    <section id="license" class="floraf-section">
+        <div class="container">
+            <h2 class="section-title">Get a license</h2>
+            <p class="section-subtitle">Tell us a little about yourself and we'll send your trial key right away.</p>
+            <form class="license-form" id="license-form">
+                <div class="form-group">
+                    <label for="lic-name">Name</label>
+                    <input type="text" id="lic-name" name="name" maxlength="120" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lic-email">Email</label>
+                    <input type="email" id="lic-email" name="email" maxlength="254" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="lic-org">Organization</label>
+                    <input type="text" id="lic-org" name="organization" maxlength="200" autocomplete="organization" required>
+                </div>
+                <div class="form-group">
+                    <label for="lic-tier">Plan</label>
+                    <select id="lic-tier" name="tier" required>
+                        <option value="trial">Free trial (14 days)</option>
+                        <option value="academic">Academic ($150 / month)</option>
+                        <option value="commercial">Commercial ($500 / month)</option>
+                    </select>
+                </div>
+                <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <label class="form-check">
+                    <input type="checkbox" name="subscribe" value="1">
+                    <span>Send me FLORAF updates by email.</span>
+                </label>
+                <button type="submit" class="btn btn-primary">Request license</button>
+                <p class="form-note">We store your name, email, and organization to issue and manage your license. We don't share them.</p>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+            <div class="license-result" id="license-result" role="status" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Stay in Touch</h2>
+            <p class="section-subtitle">Get FLORAF and other updates or reach out to discuss your project.</p>
+            <div class="contact-content">
+                <div class="subscribe-card">
+                    <h3>Get a heads up on updates</h3>
+                    <p>Occasional emails about releases, benchmarks, and new tools. Probably one per quarter. No spam.</p>
+                    <form class="subscribe-form" data-source="floraf">
+                        <div class="subscribe-row">
+                            <input type="email" name="email" aria-label="Email address" placeholder="you@company.com" maxlength="254" autocomplete="email" required>
+                            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <p class="form-note">We store your email only to send these updates. Unsubscribe anytime.</p>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:rafael@clementinescientific.com">rafael@clementinescientific.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/rafmudaf" target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="https://linkedin.com/in/rafmudaf" target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Clementine Scientific. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script src="/floraf.js"></script>
+</body>
+</html>

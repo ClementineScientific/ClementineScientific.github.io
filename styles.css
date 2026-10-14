@@ -620,14 +620,434 @@ p {
 }
 
 /* ===========================
+   FLORAF: featured card, stats
+   =========================== */
+
+.tech-card-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--spacing-md);
+    align-items: center;
+    border-color: var(--primary-color);
+}
+
+.tech-badge {
+    display: inline-block;
+    padding: 0.2rem 0.75rem;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+}
+
+.tech-card-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.stat-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: var(--spacing-sm);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* ===========================
+   Newsletter / subscribe
+   =========================== */
+
+.subscribe-form {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.subscribe-row {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.subscribe-row input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.subscribe-row input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(44, 95, 111, 0.1);
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.form-note {
+    margin: var(--spacing-xs) 0 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.form-status {
+    min-height: 1.5em;
+    margin: var(--spacing-xs) 0 0;
+    font-size: 0.95rem;
+}
+
+.form-status.is-success {
+    color: #2f855a;
+}
+
+.form-status.is-error {
+    color: #c53030;
+}
+
+/* ===========================
+   FLORAF page
+   =========================== */
+
+.floraf-hero {
+    min-height: auto;
+}
+
+.floraf-hero .hero-content {
+    max-width: 900px;
+}
+
+.floraf-hero .stat-tiles {
+    max-width: 640px;
+    margin: var(--spacing-lg) auto 0;
+    text-align: left;
+}
+
+.floraf-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-white);
+}
+
+.floraf-section.alt {
+    background-color: var(--bg-light);
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.chart-card {
+    padding: var(--spacing-md);
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.chart-card.wide {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.chart-card h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.15rem;
+}
+
+.chart-card p {
+    font-size: 0.9rem;
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.legend-swatch {
+    display: inline-block;
+    width: 1.5rem;
+    height: 0.25rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+.legend-floris { background-color: #718096; }
+.legend-floraf { background-color: var(--primary-color); }
+
+.chart {
+    width: 100%;
+}
+
+.chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.chart .axis,
+.chart .tick {
+    stroke: var(--border-color);
+    stroke-width: 1;
+}
+
+.chart .axis-label,
+.chart .tick-label {
+    fill: var(--text-light);
+    font-size: 11px;
+    font-family: inherit;
+}
+
+.chart .series {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+}
+
+.chart .series-floris { stroke: #718096; }
+.chart .series-floraf { stroke: var(--primary-color); }
+
+.chart.in-view .series {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.6s ease-out;
+}
+
+.chart .series-floraf { transition-delay: 0.3s; }
+
+.chart-caption {
+    margin: var(--spacing-sm) 0 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+.compare-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.compare-table thead th {
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+}
+
+.compare-table tbody th {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.compare-table .col-floraf {
+    color: var(--text-primary);
+    font-weight: 500;
+    background-color: rgba(44, 95, 111, 0.05);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.pricing-card.featured {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(44, 95, 111, 0.12);
+}
+
+.pricing-card h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.price {
+    margin-bottom: var(--spacing-sm);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.price small {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.pricing-card ul {
+    flex: 1;
+    margin-bottom: var(--spacing-md);
+    padding-left: 1.25rem;
+}
+
+.pricing-card li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.pricing-note {
+    max-width: 700px;
+    margin: var(--spacing-md) auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.license-form {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.form-check {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.form-check input {
+    margin-top: 0.25rem;
+}
+
+.license-result {
+    max-width: 640px;
+    margin: var(--spacing-md) auto 0;
+}
+
+.license-result:empty {
+    display: none;
+}
+
+.license-result .result-box {
+    padding: var(--spacing-md);
+    background-color: var(--bg-white);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+.license-key {
+    display: block;
+    margin: var(--spacing-xs) 0 var(--spacing-sm);
+    padding: 0.75rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chart .series {
+        stroke-dashoffset: 0;
+    }
+
+    .chart.in-view .series {
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-card-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subscribe-row {
+        flex-direction: column;
+    }
+}
+
+/* ===========================
    Print Styles
    =========================== */
 
 @media print {
     .nav,
     .footer,
-    .hero-cta,
-    .contact-form {
+    .hero-cta {
         display: none;
     }
 
