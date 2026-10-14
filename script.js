@@ -30,26 +30,6 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Form submission handling
-const form = document.querySelector('.contact-form');
-if (form) {
-    form.addEventListener('submit', function(e) {
-        // Formspree will handle the actual submission
-        // This just provides user feedback
-        const button = form.querySelector('button[type="submit"]');
-        const originalText = button.textContent;
-        button.textContent = 'Sending...';
-        button.disabled = true;
-        
-        // Note: In production with Formspree, you'll get automatic redirect/feedback
-        // This is just for immediate UI feedback
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.disabled = false;
-        }, 1000);
-    });
-}
-
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,

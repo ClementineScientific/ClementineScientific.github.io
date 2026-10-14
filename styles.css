@@ -400,11 +400,24 @@ p {
     margin: 0 auto;
 }
 
-.contact-form {
+.subscribe-card {
     background-color: var(--bg-white);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
+}
+
+.subscribe-card h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.25rem;
+}
+
+.subscribe-card > p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.subscribe-card .subscribe-row {
+    flex-direction: column;
 }
 
 .form-group {

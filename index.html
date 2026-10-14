@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NREL research software, industrial strength. Clementine Scientific transforms NREL's wind energy tools—OpenFAST, FLORIS, and WEIS—into production-ready solutions for turbine designers and wind farm developers.">
-    <meta name="keywords" content="wind energy modeling, NREL software consulting, OpenFAST, FLORIS, wind energy software, wind energy optimization, wind turbine optimization, wind farm controls, wind farm annual energy production, wind farm aep, wind farm layout optimization, OpenFAST help, WEIS">
-    <title>Clementine Scientific | Wind Energy Modeling & Software Solutions</title>
+    <meta name="description" content="Clementine Scientific enhances the simulation tools wind energy engineers already use—FLORIS, OpenFAST, and offshore and ocean models—with machine learning, differentiable physics, and agentic workflows.">
+    <meta name="keywords" content="wind energy modeling, wind energy software, OpenFAST, FLORIS, WEIS, wind energy optimization, wind turbine optimization, wind farm controls, wind farm annual energy production, wind farm aep, wind farm layout optimization, OpenFAST help, offshore wind modeling, ocean modeling, FLORAF, GPU wind farm model, differentiable FLORIS, wind farm automatic differentiation, differentiable physics, machine learning surrogate models, agentic workflows, LLM-assisted modeling">
+    <title>Clementine Scientific | Wind Energy Modeling & Next-Generation Simulation Workflows</title>
+    <link rel="canonical" href="https://clementinescientific.com/">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +30,9 @@
                 <a href="#home" class="logo">Clementine Scientific</a>
                 <div class="nav-links">
                     <a href="#services">Services</a>
-                    <a href="#technologies">Technologies</a>
+                    <a href="#software">Software</a>
                     <a href="#about">About</a>
+                    <a href="/floraf">FLORAF</a>
                     <a href="#contact" class="nav-cta">Contact</a>
                 </div>
             </div>
@@ -41,10 +43,10 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Empowering wind energy engineers with open source tools and expertise</h1>
-                <p class="hero-subtitle">Clementine Scientific helps you master the computational modeling tools you need to answer your own questions—from wind turbine design to wind farm optimization.</p>
+                <h1 class="hero-title">Modern wind energy models built from leading edge research software</h1>
+                <p class="hero-subtitle">Clementine Scientific couples validated research with differentiable physics, machine learning, and agentic environments resulting in a new class of industrial wind energy software.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+                    <a href="#contact" class="btn btn-primary">Get Updates</a>
                     <a href="#services" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -55,7 +57,6 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Services</h2>
-            <!-- <p class="section-subtitle">NREL research software, industrial strength</p> -->
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
@@ -64,8 +65,8 @@
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
                     </div>
-                    <h3>Software Development</h3>
-                    <p>Targeted development of state-of-the-art open source wind energy software to meet your specific needs.</p>
+                    <h3>Faster, Differentiable Models</h3>
+                    <p>GPU acceleration and automatic differentiation for your wind energy models, enabling gradient-based optimization of large problems.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -75,8 +76,8 @@
                             <line x1="15" y1="9" x2="9" y2="15"></line>
                         </svg>
                     </div>
-                    <h3>Workflow Development</h3>
-                    <p>Design and implementation of efficient modeling workflows tailored to your engineering processes.</p>
+                    <h3>Interactive Agent Workflows</h3>
+                    <p>Agents that set up, run, and post-process studies and batches of simulations with you in the loop.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -87,7 +88,7 @@
                         </svg>
                     </div>
                     <h3>Industrial Integration</h3>
-                    <p>Seamless integration of NREL software into your existing industrial workflows and tool chains.</p>
+                    <p>Seamless integration of wind energy modeling tools into your existing industrial workflows and tool chains.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -96,8 +97,8 @@
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                         </svg>
                     </div>
-                    <h3>Software Training</h3>
-                    <p>Comprehensive training on software development practices, software management, and NREL wind energy tools.</p>
+                    <h3>Training & Guidance</h3>
+                    <p>Practical training on wind energy modeling tools, software management, and AI-assisted engineering practices.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -107,8 +108,8 @@
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
                     </div>
-                    <h3>Usage Guidance</h3>
-                    <p>Expert guidance on using OpenFAST, FLORIS, WEIS, and other NREL software for your applications.</p>
+                    <h3>Modeling Assistance</h3>
+                    <p>LLM-assisted input generation, debugging, and analysis for OpenFAST, FLORIS, WEIS, and other wind and ocean models.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -117,34 +118,55 @@
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                         </svg>
                     </div>
-                    <h3>Modeling Support</h3>
-                    <p>Building pipelines for benchmarks, optimization sweeps, and case studies. Direct connections to NREL researchers when needed.</p>
+                    <h3>Surrogate Modeling</h3>
+                    <p>Machine learning surrogates of expensive simulations for benchmarks, optimization sweeps, and case studies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technologies Section -->
-    <section id="technologies" class="technologies">
+    <!-- Software Section -->
+    <section id="software" class="technologies">
         <div class="container">
-            <h2 class="section-title">Core Technologies In Development</h2>
-            <p class="section-subtitle">Bringing NREL's premier wind energy modeling software to you.</p>
+            <h2 class="section-title">What We've Built</h2>
+            <p class="section-subtitle">Industrial enhancements to the research software you know.</p>
             <div class="tech-grid">
-                <div class="tech-card">
-                    <h3>FASTr</h3>
-                    <p>The missing front-end to OpenFAST:</p>
-                    <ul>
-                        <li>Input visualization prior to running the model</li>
-                        <li>Input editing UI with live visualization updates</li>
-                        <li>Cloud-based job execution and batch orchestration</li>
-                        <li>Post processing support</li>
-                    </ul>
-                    <a href="https://www.clementinescientific.com/fastr" target="_blank" rel="noopener noreferrer" class="tech-link">View Project →</a>
+                <div class="tech-card tech-card-featured">
+                    <div class="tech-card-main">
+                        <h3>FLORAF</h3>
+                        <p>FLORIS, faster and differentiable. FLORAF runs on NVIDIA and Apple GPUs with automatic differentiation, so large wind farm studies finish in a fraction of the time and layouts and yaw are optimized with gradients.</p>
+                        <div class="tech-card-actions">
+                            <a href="/floraf" class="btn btn-primary">See FLORAF</a>
+                            <a href="/floraf#license" class="btn btn-secondary">Get a license</a>
+                        </div>
+                    </div>
+                    <!-- PLACEHOLDER stat values: replace with measured benchmark results -->
+                    <div class="stat-tiles">
+                        <div class="stat-tile">
+                            <span class="stat-value">100×</span>
+                            <span class="stat-label">faster AEP on large farms</span>
+                        </div>
+                        <div class="stat-tile">
+                            <span class="stat-value">GPU</span>
+                            <span class="stat-label">NVIDIA and Apple</span>
+                        </div>
+                        <div class="stat-tile">
+                            <span class="stat-value">AD</span>
+                            <span class="stat-label">automatic differentiation</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="tech-card">
-                    <h3>FLORAF</h3>
-                    <p>It's FLORIS but faster by leveraging NVIDIA and workstation GPUs + automatic differentiation.</p>
-                    <a href="https://www.linkedin.com/posts/rafmudaf_floris-update-gpu-solver-for-large-wind-activity-7364720414121472001-qNhT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAF1qTIBbCclB6K5AVfSQFOUS6DDrxwU7u0" target="_blank" rel="noopener noreferrer" class="tech-link">View Update →</a>
+                    <span class="tech-badge">In development</span>
+                    <h3>FASTr</h3>
+                    <p>An agent-managed workflow layer for OpenFAST:</p>
+                    <ul>
+                        <li>Agent-managed batch jobs, from input setup through post processing</li>
+                        <li>Interactive, agent-backed design loop</li>
+                        <li>Input visualization and editing with live updates</li>
+                        <li>Differentiable physics modules coming soon</li>
+                    </ul>
+                    <a href="https://www.clementinescientific.com/fastr" target="_blank" rel="noopener noreferrer" class="tech-link">View Project →</a>
                 </div>
                 <!-- <div class="tech-card">
                     <h3>WEIS</h3>
@@ -162,9 +184,9 @@
                 <h2 class="section-title">About</h2>
                 <div class="about-text">
                     <p class="lead">Clementine Scientific is Rafael Mudafort.</p>
-                    <p>I've started this business because I think the research software produced at NREL is extremely powerful but yet inaccessible to much of the industry. By focusing on UI design, performance optimization, and workflow integration, I intend to bridge that gap.</p>
-                    <p>I was a senior researcher in wind energy modeling at NREL for 8.5 years, where I coordinated the wind energy software portfolio, created the modern form of FLORIS from scratch, established much of OpenFAST's code quality and accessibility infrastructure, and enabled the coupling of many of NREL's models into other software. Prior to joining NREL, I worked in gas turbine computational fluid dynamics and general software development for web and high performance mobile applications.</p>
-                    <p><strong>My goal:</strong> Empower wind turbine designers and wind farm developers to leverage NREL's powerful software in the design of next generation wind energy systems.</p>
+                    <p>I've started this business because I think the wind energy modeling tools produced at NREL and other research institutions are extremely powerful but yet inaccessible to much of the industry. I am bridging that gap by incorporating machine learning, differentiable physics, and agentic workflows along with performance optimization and workflow integration.</p>
+                    <p>I've been a senior researcher in wind energy modeling at NREL for 9.5 years, where I coordinated the wind energy software portfolio, created the modern form of FLORIS from scratch, established much of OpenFAST's code quality and accessibility infrastructure, and enabled the coupling of many of NREL's models into other software. Prior to joining NREL, I worked in gas turbine computational fluid dynamics and general software development for web and high performance mobile applications.</p>
+                    <p><strong>My goal:</strong> Give wind turbine designers and wind farm developers faster, more capable modeling tools for the design of next generation wind energy systems.</p>
                 </div>
             </div>
         </div>
@@ -173,36 +195,22 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle">Ready to discuss your project? Let's talk about how we can help your team.</p>
+            <h2 class="section-title">Stay in Touch</h2>
+            <p class="section-subtitle">Get FLORAF and other updates or reach out to discuss your project.</p>
             <div class="contact-content">
-                <form class="contact-form" action="https://formspree.io/f/xyzndpga" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">Primary Interest</label>
-                        <select id="interest" name="interest">
-                            <option value="">Select one (optional)</option>
-                            <option value="software-development">Software Development</option>
-                            <option value="workflow-integration">Workflow Integration</option>
-                            <option value="training">Training</option>
-                            <option value="turbine-design">Turbine Design Support</option>
-                            <option value="farm-optimization">Farm Optimization</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <div class="subscribe-card">
+                    <h3>Get a heads up on updates</h3>
+                    <p>Occasional emails about releases, benchmarks, and new tools. Probably one per quarter. No spam.</p>
+                    <form class="subscribe-form" data-source="home">
+                        <div class="subscribe-row">
+                            <input type="email" name="email" aria-label="Email address" placeholder="you@company.com" maxlength="254" autocomplete="email" required>
+                            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <p class="form-note">We store your email only to send these updates. Unsubscribe anytime.</p>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
                 <div class="contact-info">
                     <div class="contact-item">
                         <h3>Email</h3>
@@ -233,7 +241,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Clementine Scientific. All rights reserved.</p>
+            <p>&copy; 2026 Clementine Scientific. All rights reserved.</p>
         </div>
     </footer>
 
