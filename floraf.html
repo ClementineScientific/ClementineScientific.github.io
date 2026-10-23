@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FLORAF is FLORIS on GPUs with automatic differentiation. Run large wind farm AEP studies faster and optimize layouts and yaw with gradients. Start a free 14-day trial.">
+    <meta name="description" content="FLORAF is FLORIS on GPUs with automatic differentiation. Run large wind farm AEP studies faster and optimize layouts and yaw with gradients. Free, limited licenses are available.">
     <meta name="keywords" content="FLORAF, FLORIS GPU, differentiable FLORIS, wind farm AEP, wind farm layout optimization, wake steering optimization, wind farm automatic differentiation, GPU wind farm model">
     <title>FLORAF | FLORIS on GPUs with Gradients</title>
     <link rel="canonical" href="https://clementinescientific.com/floraf">
@@ -31,7 +31,7 @@
                 <div class="nav-links">
                     <a href="#benchmarks">Speed</a>
                     <a href="#optimization">Optimization</a>
-                    <a href="#pricing">Pricing</a>
+                    <a href="#availability">Licensing</a>
                     <a href="#license" class="nav-cta">Get a license</a>
                 </div>
             </div>
@@ -42,25 +42,25 @@
     <section id="home" class="hero floraf-hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">FLORIS on GPUs with gradients</h1>
+                <h1 class="hero-title">FLORAF: A Differentiable FLORIS on GPUs</h1>
                 <p class="hero-subtitle">FLORAF is the FLORIS wake models and API with support for NVIDIA and Apple GPUs and automatic differentiation. This unlocks running large wind farm studies and gradient-based layout and yaw optimization in a fraction of the time.</p>
                 <div class="hero-cta">
-                    <a href="#license" class="btn btn-primary" data-cta="start_trial">Start free trial</a>
-                    <a href="#pricing" class="btn btn-secondary" data-cta="compare_plans">Compare plans</a>
+                    <a href="#license" class="btn btn-primary" data-cta="request_license">Request a license</a>
+                    <a href="#availability" class="btn btn-secondary" data-cta="license_information">License information</a>
                 </div>
                 <!-- PLACEHOLDER stat values: replace with measured benchmark results -->
                 <div class="stat-tiles">
                     <div class="stat-tile">
                         <span class="stat-value">100×</span>
-                        <span class="stat-label">faster AEP on large farms</span>
+                        <span class="stat-label">Order of magnitude faster AEP on large farms</span>
                     </div>
                     <div class="stat-tile">
                         <span class="stat-value">GPU</span>
-                        <span class="stat-label">NVIDIA (CUDA), Apple (Metal, MPS)</span>
+                        <span class="stat-label">NVIDIA (CUDA), Apple (Metal / MPS)</span>
                     </div>
                     <div class="stat-tile">
-                        <span class="stat-value">AD</span>
-                        <span class="stat-label">Automatic differentiation with PyTorch</span>
+                        <span class="stat-value">PyTorch</span>
+                        <span class="stat-label">Automatic differentiation with Tensors</span>
                     </div>
                 </div>
             </div>
@@ -155,7 +155,7 @@
                         <tr>
                             <th scope="row">Availability</th>
                             <td>Open source</td>
-                            <td class="col-floraf">Licensed, with a free trial</td>
+                            <td class="col-floraf">Free, limited license available</td>
                         </tr>
                     </tbody>
                 </table>
@@ -163,47 +163,11 @@
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="floraf-section alt">
+    <!-- License availability -->
+    <section id="availability" class="floraf-section alt">
         <div class="container">
-            <h2 class="section-title">Plans</h2>
-            <p class="section-subtitle">Start with a free trial. Upgrade when you're ready.</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Free trial</h3>
-                    <div class="price">$0 <small>/ 14 days</small></div>
-                    <ul>
-                        <li>14 days of access</li>
-                        <li>Limited features</li>
-                        <li>Key delivered instantly</li>
-                        <li>One trial per email address</li>
-                    </ul>
-                    <a href="#license" class="btn btn-secondary" data-tier="trial">Start free trial</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Academic</h3>
-                    <div class="price">$150 <small>/ month</small></div>
-                    <ul>
-                        <li>Limited features</li>
-                        <li>For university and research use</li>
-                        <li>Trial key issued instantly</li>
-                        <li>Full license issued after approval</li>
-                    </ul>
-                    <a href="#license" class="btn btn-secondary" data-tier="academic">Choose Academic</a>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Commercial</h3>
-                    <div class="price">$500 <small>/ month</small></div>
-                    <ul>
-                        <li>Full feature set</li>
-                        <li>For commercial use</li>
-                        <li>Trial key issued instantly</li>
-                        <li>Full license issued after approval</li>
-                    </ul>
-                    <a href="#license" class="btn btn-primary" data-tier="commercial">Choose Commercial</a>
-                </div>
-            </div>
-            <p class="pricing-note">Academic and Commercial plans are paid at checkout and reviewed before the full license is issued. Your trial key works in the meantime.</p>
+            <h2 class="section-title">Licensing</h2>
+            <p class="section-subtitle">Free, limited licenses are currently available for 30 days. As FLORAF is extended, the license structure will change.</p>
         </div>
     </section>
 
@@ -211,7 +175,6 @@
     <section id="license" class="floraf-section">
         <div class="container">
             <h2 class="section-title">Get a license</h2>
-            <p class="section-subtitle">Tell us a little about yourself and we'll send your trial key right away.</p>
             <form class="license-form" id="license-form">
                 <div class="form-group">
                     <label for="lic-name">Name</label>
@@ -225,21 +188,13 @@
                     <label for="lic-org">Organization</label>
                     <input type="text" id="lic-org" name="organization" maxlength="200" autocomplete="organization" required>
                 </div>
-                <div class="form-group">
-                    <label for="lic-tier">Plan</label>
-                    <select id="lic-tier" name="tier" required>
-                        <option value="trial">Free trial (14 days)</option>
-                        <option value="academic">Academic ($150 / month)</option>
-                        <option value="commercial">Commercial ($500 / month)</option>
-                    </select>
-                </div>
+                <input type="hidden" name="tier" value="trial">
                 <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <label class="form-check">
                     <input type="checkbox" name="subscribe" value="1">
                     <span>Send me FLORAF updates by email.</span>
                 </label>
                 <button type="submit" class="btn btn-primary">Request license</button>
-                <p class="form-note">We store your name, email, and organization to issue and manage your license. We don't share them.</p>
                 <p class="form-status" role="status" aria-live="polite"></p>
             </form>
             <div class="license-result" id="license-result" role="status" aria-live="polite"></div>
@@ -295,7 +250,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Clementine Scientific. All rights reserved.</p>
+            <p>&copy; 2026 Clementine Scientific. All rights reserved.</p>
         </div>
     </footer>
 

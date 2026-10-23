@@ -1,4 +1,4 @@
-// FLORAF page: charts, plan selection, and license request form.
+// FLORAF page: charts and license request form.
 
 // ---------------------------------------------------------------------------
 // Chart data. PLACEHOLDER values: replace with measured benchmark results.
@@ -128,7 +128,7 @@ const chartObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.chart').forEach(chart => chartObserver.observe(chart));
 
 // ---------------------------------------------------------------------------
-// CTAs and plan selection
+// CTAs
 // ---------------------------------------------------------------------------
 document.querySelectorAll('[data-cta]').forEach(link => {
     link.addEventListener('click', () => {
@@ -138,13 +138,6 @@ document.querySelectorAll('[data-cta]').forEach(link => {
 
 const licenseForm = document.getElementById('license-form');
 const licenseResult = document.getElementById('license-result');
-
-document.querySelectorAll('[data-tier]').forEach(link => {
-    link.addEventListener('click', () => {
-        if (licenseForm) licenseForm.elements.tier.value = link.dataset.tier;
-        trackEvent('tier_selected', { tier: link.dataset.tier });
-    });
-});
 
 // ---------------------------------------------------------------------------
 // License request form
@@ -220,7 +213,7 @@ if (licenseForm) {
 
             if (res.status === 409) {
                 status.classList.add('is-error');
-                status.textContent = 'A trial has already been issued for this email. Choose a paid plan or email rafael@clementinescientific.com.';
+                status.textContent = 'A free license has already been issued for this email. Contact rafael@clementinescientific.com if you need help.';
                 return;
             }
             if (!res.ok) {
@@ -234,13 +227,13 @@ if (licenseForm) {
             // Only follow checkout redirects to Stripe.
             if (data.checkoutUrl && data.checkoutUrl.startsWith('https://checkout.stripe.com/')) {
                 status.classList.add('is-success');
-                status.textContent = (data.trialIssued ? 'Your trial key is on its way by email. ' : '') + 'Redirecting to secure checkout…';
+                status.textContent = (data.trialIssued ? 'Your free license key is on its way by email. ' : '') + 'Redirecting to secure checkout…';
                 window.location.assign(data.checkoutUrl);
                 return;
             }
 
             licenseForm.reset();
-            showResult('Your trial key', [
+            showResult('Your FLORAF license key', [
                 `Valid until ${new Date(data.expiresAt).toLocaleDateString()}. We also emailed it to you.`
             ], data.trialKey);
         } catch (err) {
@@ -256,7 +249,7 @@ if (licenseForm) {
 const checkoutState = new URLSearchParams(window.location.search).get('checkout');
 if (licenseResult && checkoutState === 'success') {
     showResult('Payment received', [
-        'Thank you. Your full license will be issued after a quick review, and your trial key keeps working in the meantime.'
+        'Thank you. Your full license will be issued after a quick review, and your current license remains valid in the meantime.'
     ]);
 } else if (licenseForm && checkoutState === 'cancelled') {
     const status = licenseForm.querySelector('.form-status');

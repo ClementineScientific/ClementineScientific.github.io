@@ -94,9 +94,9 @@ export default async function handler(req, res) {
             const expires = trial.expiresAt ? new Date(trial.expiresAt).toUTCString() : 'n/a';
             await sendEmail({
                 to: email.email,
-                subject: 'Your FLORAF trial key',
-                text: `Hi ${name},\n\nYour FLORAF trial key:\n\n${trial.key}\n\nIt expires ${expires}.\n\nClementine Scientific`,
-                html: `<p>Hi ${escapeHtml(name)},</p><p>Your FLORAF trial key:</p><p><code>${escapeHtml(trial.key)}</code></p><p>It expires ${escapeHtml(expires)}.</p><p>Clementine Scientific</p>`
+                subject: 'Your FLORAF license key',
+                text: `Hi ${name},\n\nYour FLORAF license key:\n\n${trial.key}\n\nIt expires ${expires}.\n\nClementine Scientific`,
+                html: `<p>Hi ${escapeHtml(name)},</p><p>Your FLORAF license key:</p><p><code>${escapeHtml(trial.key)}</code></p><p>It expires ${escapeHtml(expires)}.</p><p>Clementine Scientific</p>`
             });
         } catch (err) {
             console.error('Trial email failed:', err);
